@@ -69,7 +69,7 @@ impl Mancala {
             io::stdout().flush().unwrap();
             let mut input = String::new();
             io::stdin().read_line(&mut input).unwrap();
-            let pit_index: usize = match input.trim().parse() {
+            let pit_index: usize = match input.trim().parse::<usize>() {
                 Ok(num) if (1..=6).contains(&num) => num - 1,
                 _ => {
                     println!("Invalid input. Please enter a number between 1 and 6.");
