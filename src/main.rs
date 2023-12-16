@@ -34,16 +34,17 @@ impl Mancala {
         let stones = self.board[pit_index];
         self.board[pit_index] = 0;
         let mut current_index = pit_index + 1;
-
+    
         for _ in 0..stones {
             current_index %= 14;
-            self.board[current_index] += 1;
-            current_index += 1;
+            self.board[current_index] = self.board[current_index].wrapping_add(1); // Use wrapping_add to handle overflow
+            current_index = current_index.wrapping_add(1);
         }
-
-        self.handle_capture(current_index - 1);
+    
+        self.handle_capture(current_index.wrapping_sub(1)); // Use wrapping_sub to handle underflow
         self.switch_player();
     }
+    
 
     fn handle_capture(&mut self, last_index: usize) {
         let opposite_index = 12 - last_index;
