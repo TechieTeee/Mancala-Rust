@@ -1,2 +1,2 @@
-# Mancala-Rust
-Mancala Historical, West African Strategy Game Written in Ruat
+# Ayo Strategy Game
+Ayo Historical, West African Strategy Game Written in Ruat
