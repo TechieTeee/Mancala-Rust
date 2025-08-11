@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Mancala</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <script type="module">
+      import init from "./mancala_game.js";
+      init().then(() => {
+        console.log("WASM Loaded");
+      });
+    </script>
+  </body>
+</html>

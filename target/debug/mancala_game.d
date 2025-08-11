@@ -1,1 +1,1 @@
-/workspace/Mancala-Rust/target/debug/mancala_game: /workspace/Mancala-Rust/src/main.rs
+/workspace/Mancala-Rust/target/debug/mancala_game: /workspace/Mancala-Rust/src/frontend/components/board.rs /workspace/Mancala-Rust/src/frontend/components/mod.rs /workspace/Mancala-Rust/src/frontend/mod.rs /workspace/Mancala-Rust/src/frontend/pages/home.rs /workspace/Mancala-Rust/src/frontend/pages/mod.rs /workspace/Mancala-Rust/src/game.rs /workspace/Mancala-Rust/src/lib.rs /workspace/Mancala-Rust/src/main.rs
