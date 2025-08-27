@@ -17,15 +17,12 @@ Educational and Historical: Learn about the historical context and significance 
 # How to Play
 Clone the repository:
 bash
-Copy code
-git clone https://github.com/your-username/mancala-rust.git
+git clone https://github.com/TechieTeee/mancala-rust.git
 Navigate to the project directory:
 bash
-Copy code
 cd mancala-rust
 Run the game:
 bash
-Copy code
 cargo run
 Gameplay
 Number of Players: Mancala is a two-player game.
