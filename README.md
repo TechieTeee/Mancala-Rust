@@ -17,10 +17,10 @@ Educational and Historical: Learn about the historical context and significance 
 # How to Play
 Clone the repository:
 bash
-git clone https://github.com/TechieTeee/mancala-rust.git
+`git clone https://github.com/TechieTeee/mancala-rust.git`
 Navigate to the project directory:
 bash
-cd mancala-rust
+`cd mancala-rust`
 Run the game:
 bash
 cargo run
