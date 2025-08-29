@@ -9,17 +9,21 @@ pub fn home() -> Html {
     let on_pit_click = {
         let game = game.clone();
         Callback::from(move |pit_index: usize| {
-            let mut new_game = (*game).clone();
-            new_game.make_move(pit_index);
-            game.set(new_game);
+            game.set(game.deref().make_move(pit_index));
         })
+    };
+
+    let reset_game = {
+        let game = game.clone();
+        Callback::from(move |_| game.set(Mancala::new()))
     };
 
     html! {
         <div class="container">
-            <h1>{"Mancala"}</h1>
+            <h1>{ "Mancala" }</h1>
             <Board game={(*game).clone()} on_pit_click={on_pit_click} />
-            <button onclick={let game = game.clone(); move |_| game.set(Mancala::new())}>{"New Game"}</button>
+            <button {reset_game}>{ "New Game" }</button>
         </div>
     }
 }
+
