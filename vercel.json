@@ -1,0 +1,33 @@
+{
+  "buildCommand": "wasm-pack build --target web --out-dir pkg",
+  "outputDirectory": ".",
+  "installCommand": "curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh",
+  "functions": {},
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cross-Origin-Embedder-Policy",
+          "value": "cross-origin"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy", 
+          "value": "cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/pkg/(.*).wasm",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/wasm"
+        }
+      ]
+    }
+  ]
+}
