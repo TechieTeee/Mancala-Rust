@@ -10,7 +10,7 @@ pub struct AudioManager {
 impl AudioManager {
     pub fn new() -> Self {
         let background_music = HtmlAudioElement::new().ok().map(|audio| {
-            audio.set_src("./static/afro-beat-pop-african-afrobeat-music-357196.mp3");
+            audio.set_src("static/afro-beat-pop-african-afrobeat-music-357196.mp3");
             audio.set_loop(true);
             audio.set_volume(0.15); // Low volume for background
             audio

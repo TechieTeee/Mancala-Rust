@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <title>Mancala</title>
-    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="static/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <main></main>
     <script type="module">
-      import init, { run_app } from "./pkg/mancala_game.js";
+      import init, { run_app } from "pkg/mancala_game.js";
       init().then(() => {
         run_app();
       });
