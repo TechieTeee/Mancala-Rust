@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Path Test</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .test { margin: 10px 0; padding: 10px; border: 1px solid #ccc; }
+        .success { background: #d4edda; }
+        .error { background: #f8d7da; }
+    </style>
+</head>
+<body>
+    <h1>Vercel Path Test</h1>
+    
+    <div class="test">
+        <h3>CSS Test</h3>
+        <link rel="stylesheet" href="static/style.css">
+        <p>If the background shows up, CSS is loading.</p>
+    </div>
+    
+    <div class="test">
+        <h3>WASM JS Test</h3>
+        <p id="wasm-status">Testing WASM file access...</p>
+        <script>
+            fetch('pkg/mancala_game.js')
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('wasm-status').textContent = '✅ WASM JS file found';
+                        document.getElementById('wasm-status').className = 'success';
+                    } else {
+                        document.getElementById('wasm-status').textContent = '❌ WASM JS file not found';
+                        document.getElementById('wasm-status').className = 'error';
+                    }
+                })
+                .catch(err => {
+                    document.getElementById('wasm-status').textContent = '❌ Error: ' + err;
+                    document.getElementById('wasm-status').className = 'error';
+                });
+        </script>
+    </div>
+    
+    <div class="test">
+        <h3>Static Files</h3>
+        <p>Testing image load:</p>
+        <img src="static/Orange_and_Yelllow_Ankara.jpg" width="100" height="100" 
+             onload="this.nextElementSibling.innerHTML='✅ Image loaded'" 
+             onerror="this.nextElementSibling.innerHTML='❌ Image failed'">
+        <p>Loading...</p>
+    </div>
+    
+    <div class="test">
+        <h3>Audio File</h3>
+        <audio controls>
+            <source src="static/afro-beat-pop-african-afrobeat-music-357196.mp3" type="audio/mpeg">
+            Audio not supported
+        </audio>
+    </div>
+</body>
+</html>
