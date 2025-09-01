@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Modern Mancala game with West African cultural design",
   "scripts": {
-    "build": "wasm-pack build --target web --out-dir pkg",
+    "build": "curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh && wasm-pack build --target web --out-dir pkg",
     "watch": "./watch-build.sh",
     "dev": "npm run watch",
-    "serve": "python3 -m http.server 8000"
+    "serve": "python3 -m http.server 8000",
+    "vercel-build": "curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh && wasm-pack build --target web --out-dir pkg"
   },
   "keywords": ["mancala", "rust", "wasm", "webassembly", "board-game", "african-culture"],
   "devDependencies": {
