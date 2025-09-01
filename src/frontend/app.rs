@@ -1,3 +1,4 @@
+use gloo_console::log;
 use yew::prelude::*;
 use yew_router::prelude::*;
 
@@ -17,6 +18,7 @@ fn switch(routes: Route) -> Html {
 
 #[function_component(App)]
 pub fn app() -> Html {
+    log!("Rendering App component");
     html! {
         <BrowserRouter>
             <Switch<Route> render={switch} />

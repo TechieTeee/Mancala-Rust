@@ -3,13 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <title>Mancala</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/static/style.css">
   </head>
   <body>
+    <main></main>
     <script type="module">
-      import init from "./mancala_game.js";
+      import init, { run_app } from "./pkg/mancala_game.js";
       init().then(() => {
-        console.log("WASM Loaded");
+        run_app();
       });
     </script>
   </body>
