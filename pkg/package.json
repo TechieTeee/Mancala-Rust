@@ -1,0 +1,15 @@
+{
+  "name": "mancala_game",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "mancala_game_bg.wasm",
+    "mancala_game.js",
+    "mancala_game.d.ts"
+  ],
+  "main": "mancala_game.js",
+  "types": "mancala_game.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
