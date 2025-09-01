@@ -51,18 +51,14 @@ impl Mancala {
 
         if self.board[last_stone_index] == 1 && (0..6).contains(&last_stone_index) && self.current_player == 0 {
             let opposite_index = 12 - last_stone_index;
-            if self.board[opposite_index] > 0 {
-                self.board[6] += self.board[opposite_index] + 1;
-                self.board[last_stone_index] = 0;
-                self.board[opposite_index] = 0;
-            }
+            self.board[6] += self.board[opposite_index] + 1;
+            self.board[last_stone_index] = 0;
+            self.board[opposite_index] = 0;
         } else if self.board[last_stone_index] == 1 && (7..13).contains(&last_stone_index) && self.current_player == 1 {
             let opposite_index = 12 - last_stone_index;
-            if self.board[opposite_index] > 0 {
-                self.board[13] += self.board[opposite_index] + 1;
-                self.board[last_stone_index] = 0;
-                self.board[opposite_index] = 0;
-            }
+            self.board[13] += self.board[opposite_index] + 1;
+            self.board[last_stone_index] = 0;
+            self.board[opposite_index] = 0;
         }
 
         self.current_player = 1 - self.current_player;
