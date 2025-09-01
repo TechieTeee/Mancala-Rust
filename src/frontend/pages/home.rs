@@ -1,5 +1,4 @@
 use yew::prelude::*;
-use std::ops::Deref;
 use crate::game::Mancala;
 use crate::frontend::components::board::Board;
 
