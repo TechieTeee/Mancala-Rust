@@ -1,11 +1,10 @@
 ![Mancala_Game](https://github.com/TechieTeee/Mancala-Rust/assets/100870737/0158f956-b078-4279-84ce-b82887dc26ea)
 
-* Front end work in progress
 # Mancala: A Historical West African Strategy Game
 Mancala is a strategy game deeply rooted in West African history, known by various names such as Ayo and Oware in different regions. This repository contains a Rust implementation of the Mancala game, offering a digital version of this ancient and culturally significant board game.
 
 # Historical Significance and Overview
-Mancala involves moving stones or seeds across pits or hollows on a board, with the goal of capturing the opponent's pieces. The game has a rich history, reflecting the diverse cultures and traditions of West Africa. Played in various forms across different regions, Mancala has served as a pastime, a tool for social interaction, and a reflection of cultural traditions.
+Mancala involves moving stones or seeds across pits or hollows on a board, with the goal of capturing the opponent's pieces. The game has a rich history, reflecting the diverse cultures and traditions of West Africa. Played in various forms across different regions, Mancala has served as a pastime, a tool for social interaction, military training, logic training and a reflection of cultural traditions.
 
 This Rust implementation aims to provide an interactive and enjoyable digital experience while honoring the historical significance of Mancala. The adaptability and enduring popularity of the game highlight its importance in preserving and sharing the rich heritage of West African communities.
 
