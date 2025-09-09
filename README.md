@@ -30,7 +30,7 @@ This Rust implementation aims to provide an interactive and enjoyable digital ex
 
 ## Features
 
-**Text-Based Terminal Interface:** Play the game in a simple yet engaging text-based interface within your terminal.
+**User Friendly Interface** Updated the original terminal command line experience to a more user friendly interface with player prompts
 
 **Two-Player Mode:** Challenge a friend and experience the strategic depth of Mancala in a multiplayer setting.
 
