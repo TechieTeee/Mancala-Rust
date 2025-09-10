@@ -1,0 +1,42 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": ".",
+        "buildCommand": "echo 'Using pre-built WASM files'"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/pkg/(.*)",
+      "headers": {
+        "Content-Type": "application/javascript"
+      }
+    },
+    {
+      "src": "/pkg/(.*\\.wasm)",
+      "headers": {
+        "Content-Type": "application/wasm"
+      }
+    },
+    {
+      "src": "/static/(.*)",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "functions": {
+    "pkg/mancala_game.js": {
+      "maxDuration": 10
+    }
+  }
+}

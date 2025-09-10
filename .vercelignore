@@ -1,0 +1,20 @@
+# Development files
+target/
+src/
+Cargo.toml
+Cargo.lock
+watch-build.sh
+BUILD.md
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
