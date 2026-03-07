@@ -85,75 +85,51 @@ pub fn home() -> Html {
     let show_instructions = use_state(|| true);
     let music_playing = use_state(|| false);
 
-    // Use use_callback to memoize callbacks and prevent recreation on every render
     let on_pit_click = {
         let game = game.clone();
-        use_callback(
-            move |pit_index: usize, game| {
-                let mut new_game = (**game).clone();
-                
-                // Simplified validation logic
-                let valid_move = match (new_game.current_player, pit_index) {
-                    (0, 0..=5) | (1, 7..=12) => true,
-                    _ => false,
-                };
-                
-                if valid_move {
-                    new_game.make_move(pit_index);
-                    game.set(new_game);
-                }
-            },
-            game,
-        )
+        Callback::from(move |pit_index: usize| {
+            let mut new_game = (*game).clone();
+            if new_game.make_move(pit_index) {
+                game.set(new_game);
+            }
+        })
     };
 
     let reset_game = {
         let game = game.clone();
         let audio = Rc::clone(&audio);
-        use_callback(
-            move |_, _| {
-                audio.play_drum_sound(DrumSound::NewGame);
-                game.set(Mancala::new());
-            },
-            (),
-        )
+        Callback::from(move |_: MouseEvent| {
+            audio.play_drum_sound(DrumSound::NewGame);
+            game.set(Mancala::new());
+        })
     };
 
     let hide_instructions = {
         let show_instructions = show_instructions.clone();
-        use_callback(
-            move |_, _| {
-                show_instructions.set(false);
-            },
-            (),
-        )
+        Callback::from(move |_: ()| {
+            show_instructions.set(false);
+        })
     };
 
     let show_instructions_again = {
         let show_instructions = show_instructions.clone();
-        use_callback(
-            move |_, _| {
-                show_instructions.set(true);
-            },
-            (),
-        )
+        Callback::from(move |_: MouseEvent| {
+            show_instructions.set(true);
+        })
     };
 
     let toggle_music = {
         let audio = Rc::clone(&audio);
         let music_playing = music_playing.clone();
-        use_callback(
-            move |_, music_playing| {
-                if **music_playing {
-                    audio.pause_background_music();
-                    music_playing.set(false);
-                } else {
-                    audio.play_background_music();
-                    music_playing.set(true);
-                }
-            },
-            music_playing,
-        )
+        Callback::from(move |_: MouseEvent| {
+            if *music_playing {
+                audio.pause_background_music();
+                music_playing.set(false);
+            } else {
+                audio.play_background_music();
+                music_playing.set(true);
+            }
+        })
     };
 
     // Compute game status messages (memoized via conditional)
@@ -165,8 +141,6 @@ pub fn home() -> Html {
         };
         ("Game Over", winner_msg)
     } else {
-        let current_player = if game.current_player == 0 { "Player 1" } else { "Player 2" };
-        // Use string formatting only once
         (
             if game.current_player == 0 { "Player 1's Turn" } else { "Player 2's Turn" },
             "Click your pits to move stones"
