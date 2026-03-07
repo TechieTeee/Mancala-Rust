@@ -2,28 +2,21 @@
   "version": 2,
   "buildCommand": "export PATH=\"/rust/bin:$PATH\" && rustup target add wasm32-unknown-unknown && curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh && wasm-pack build --target web --out-dir pkg",
   "outputDirectory": ".",
-  "routes": [
+  "headers": [
     {
-      "src": "/pkg/(.*\\.wasm)$",
-      "headers": {
-        "Content-Type": "application/wasm"
-      }
+      "source": "/pkg/(.*\\.wasm)",
+      "headers": [
+        { "key": "Content-Type", "value": "application/wasm" }
+      ]
     },
     {
-      "src": "/pkg/(.*\\.js)$",
-      "headers": {
-        "Content-Type": "application/javascript"
-      }
-    },
-    {
-      "src": "/static/(.*)",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/static/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
     }
+  ],
+  "rewrites": [
+    { "source": "/((?!pkg|static).*)", "destination": "/index.html" }
   ]
 }
