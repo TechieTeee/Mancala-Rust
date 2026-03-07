@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "export PATH=\"/rust/bin:$PATH\" && curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh && wasm-pack build --target web --out-dir pkg",
+  "buildCommand": "export PATH=\"/rust/bin:$PATH\" && rustup target add wasm32-unknown-unknown && curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh && wasm-pack build --target web --out-dir pkg",
   "outputDirectory": ".",
   "routes": [
     {
