@@ -4,13 +4,13 @@
   "outputDirectory": ".",
   "routes": [
     {
-      "src": "/pkg/(.*\\.wasm)",
+      "src": "/pkg/(.*\\.wasm)$",
       "headers": {
         "Content-Type": "application/wasm"
       }
     },
     {
-      "src": "/pkg/(.*)",
+      "src": "/pkg/(.*\\.js)$",
       "headers": {
         "Content-Type": "application/javascript"
       }
