@@ -71,43 +71,37 @@ body::after {
     100% { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 0 50px rgba(255, 215, 0, 0.5); }
 }
 
-/* Targeting h1 inside main for Mancala title */
-main h1,
-.container h1,
-div.container h1 {
-    font-size: 4em !important;
-    font-weight: 900 !important;
-    color: #FFD700 !important;
-    background-color: rgba(0, 0, 0, 0.8) !important;
-    padding: 20px 40px !important;
-    border-radius: 15px !important;
-    border: 3px solid #FFD700 !important;
-    text-shadow: 
+.container h1 {
+    font-size: 4em;
+    font-weight: 900;
+    color: #FFD700;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px 40px;
+    border-radius: 15px;
+    border: 3px solid #FFD700;
+    text-shadow:
         -3px -3px 0 #000,
         3px -3px 0 #000,
         -3px 3px 0 #000,
-        3px 3px 0 #000 !important;
-    margin-bottom: 30px !important;
-    letter-spacing: 3px !important;
-    position: relative !important;
-    z-index: 10 !important;
-    animation: goldGlow 3s ease-in-out infinite alternate !important;
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5) !important;
-    -webkit-text-fill-color: #FFD700 !important;
-    background-clip: initial !important;
-    -webkit-background-clip: initial !important;
+        3px 3px 0 #000;
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+    position: relative;
+    z-index: 10;
+    animation: goldGlow 3s ease-in-out infinite alternate;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    -webkit-text-fill-color: #FFD700;
+    background-clip: initial;
+    -webkit-background-clip: initial;
 }
 
-/* Shimmer overlay effect */
-main h1::before,
-.container h1::before,
-div.container h1::before {
-    content: "" !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
+.container h1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(
         90deg,
         transparent 0%,
@@ -115,12 +109,12 @@ div.container h1::before {
         rgba(255, 255, 255, 0.4) 50%,
         transparent 70%,
         transparent 100%
-    ) !important;
-    background-size: 200% 100% !important;
-    animation: textShimmer 4s ease-in-out infinite !important;
-    pointer-events: none !important;
-    z-index: 1 !important;
-    border-radius: 15px !important;
+    );
+    background-size: 200% 100%;
+    animation: textShimmer 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 15px;
 }
 
 @keyframes textShimmer {
@@ -676,29 +670,28 @@ button:active {
     body {
         padding: 10px;
     }
-    
+
     .container {
         padding: 20px;
         margin: 0 10px;
     }
-    
-    main h1 {
+
+    .container h1 {
         font-size: 2.5em;
         margin-bottom: 20px;
     }
-    
+
     .board {
-        padding: 20px;
-        transform: scale(0.9);
+        padding: 15px;
     }
-    
+
     .pit {
         width: 50px;
         height: 50px;
         font-size: 1.6em;
         margin: 5px;
     }
-    
+
     .player-1-store, .player-2-store {
         width: 60px;
         height: 120px;
@@ -711,26 +704,26 @@ button:active {
     .container {
         padding: 15px;
     }
-    
-    main h1 {
+
+    .container h1 {
         font-size: 2em;
     }
-    
+
     .board {
-        transform: scale(0.8);
+        padding: 10px;
     }
-    
+
     .pit {
-        width: 45px;
-        height: 45px;
-        font-size: 1.4em;
-        margin: 4px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.3em;
+        margin: 3px;
     }
-    
+
     .player-1-store, .player-2-store {
-        width: 50px;
-        height: 100px;
-        font-size: 1.6em;
-        margin: 0 8px;
+        width: 45px;
+        height: 90px;
+        font-size: 1.5em;
+        margin: 0 6px;
     }
 }

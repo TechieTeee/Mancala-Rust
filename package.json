@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Modern Mancala game with West African cultural design",
   "scripts": {
-    "build": "echo 'Using pre-built WASM files for deployment'",
-    "build:wasm": "wasm-pack build --target web --out-dir pkg",
-    "build:dev": "echo 'Using pre-built WASM files'",
+    "build": "curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh && wasm-pack build --target web --out-dir pkg",
     "watch": "./watch-build.sh",
     "dev": "npm run watch",
     "serve": "python3 -m http.server 8000"

@@ -1,26 +1,18 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": ".",
-        "buildCommand": "echo 'Using pre-built WASM files'"
-      }
-    }
-  ],
+  "buildCommand": "curl https://sh.rustup.rs -sSf | sh -s -- -y && . \"$HOME/.cargo/env\" && curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh && wasm-pack build --target web --out-dir pkg",
+  "outputDirectory": ".",
   "routes": [
-    {
-      "src": "/pkg/(.*)",
-      "headers": {
-        "Content-Type": "application/javascript"
-      }
-    },
     {
       "src": "/pkg/(.*\\.wasm)",
       "headers": {
         "Content-Type": "application/wasm"
+      }
+    },
+    {
+      "src": "/pkg/(.*)",
+      "headers": {
+        "Content-Type": "application/javascript"
       }
     },
     {
@@ -33,10 +25,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "functions": {
-    "pkg/mancala_game.js": {
-      "maxDuration": 10
-    }
-  }
+  ]
 }
