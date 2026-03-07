@@ -1,5 +1,3 @@
-use serde::{Serialize, Deserialize};
-
 pub const PLAYER1_STORE: usize = 6;
 pub const PLAYER2_STORE: usize = 13;
 pub const PLAYER1_PITS: std::ops::Range<usize> = 0..6;
@@ -7,7 +5,7 @@ pub const PLAYER2_PITS: std::ops::Range<usize> = 7..13;
 const BOARD_SIZE: usize = 14;
 const INITIAL_STONES: u8 = 4;
 
-#[derive(Serialize, Deserialize, Clone, PartialEq, Debug)]
+#[derive(Clone, PartialEq, Debug)]
 pub struct Mancala {
     pub board: [u8; BOARD_SIZE],
     pub current_player: usize,
